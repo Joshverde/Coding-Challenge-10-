@@ -67,9 +67,32 @@ class Inventory {
         console.log(product.getDetails()); // logd product.getDetails to console
       });
     }
+    placeOrder(orderId, product, quantity) {
+        // creates a method
+        if (quantity <= product.stock) {
+          // if quantity is less than or equal to product stock
+          const order = new Order(orderId, product, quantity); // creates a new order
+          this.orders.push(order); // adds new order to orders
+        }
+        else{
+          return 'Insufficent stock!'
+        }
+    }
+    listOrders() {
+    this.orders.forEach((order) => {
+         // uses forEach to call each order in the orders list and log their getOrderDetails to the conso
+        console.log(order.getOrderDetails());
+        });
+    }
 }
 // Task 3 Test casess
 console.log("task 3"); // for ease of readability
 const inventory = new Inventory(); //creates a new inventory
 inventory.addProduct(prod1); // calls method
 inventory.listProducts(); // calls method
+
+// Task 4 test cases
+console.log("task 4"); // for ease of readability
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders(); // calls method
+console.log(prod1.getDetails()); // calls and logs method
