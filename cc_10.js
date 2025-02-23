@@ -25,3 +25,25 @@ class Product {
   prod1.updateStock(3); // calls method
   console.log(prod1.getDetails()); // calls and logs method
   
+//Task 2
+class Order {
+  //creates the class
+  constructor(orderId, product, quantity) {
+    // creates a constructor with specified properties
+    this.orderId = orderId; // assigns orderId
+    this.quantity = quantity; //assigns quantity
+    this.product = product; // awssigns product
+  }
+  getOrderDetails() {
+    this.product.stock -= this.quantity; // updates product stock
+    return `Order ID: ${this.orderId}, product: ${this.product.name // instance of??
+      }, Quantity: ${this.quantity}, Total Price: $${this.product.price * this.quantity
+      }`; // returns formatted order details
+    //returns formatted product detials
+  }
+}
+//task 2  Test cases
+console.log("Task 2"); // for readability
+const order1 = new Order(501, prod1, 2); //creates a new order
+console.log(order1.getOrderDetails()); // calls and logs method
+console.log(prod1.getDetails()); // calls and logs method
